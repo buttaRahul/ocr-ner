@@ -14,7 +14,6 @@ import nltk
 from nltk.corpus import stopwords
 import string
 
-# Download the stopwords from NLTK
 nltk.download('stopwords')
 
 load_dotenv()
