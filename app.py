@@ -9,6 +9,18 @@ from fastapi import Request, HTTPException
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
 
+import os
+from dotenv import load_dotenv
+load_dotenv()
+
+endpoint = os.getenv('ENDPOINT')
+# print(endpoint)
+key = os.getenv("API_KEY")
+print(key)
+
+
+
+
 app = FastAPI()
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
@@ -26,15 +38,15 @@ app.add_middleware(
 
 templates = Jinja2Templates(directory="templates")
 
-endpoint = "https://ocrner.cognitiveservices.azure.com/"
-key = "7be108f880cc463ebb15dd266252b63d"
+# endpoint = "https://ocrner.cognitiveservices.azure.com/"
+# key = "7be108f880cc463ebb15dd266252b63d"
 document_analysis_client = DocumentAnalysisClient(
     endpoint=endpoint, credential=AzureKeyCredential(key)
 )
 
 ner = pipeline(
     'ner',
-    model="saved_model",
+    model="D:\\download\\saved_model-20240515T173042Z-001\\saved_model",
     aggregation_strategy='simple',
     device=0
 )
