@@ -10,4 +10,5 @@
       </li>
     </ol>
   </li>
+  <li> <p>Google colab link of fine-tuning bert-large-cased :<a href="https://colab.research.google.com/drive/13szKDmbohFQwPcpJX2IhM59TTRALsOcy?usp=sharing">fine-tuning.ipynb</a></p></li>
 </ul>
