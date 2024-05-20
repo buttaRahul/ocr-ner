@@ -6,7 +6,7 @@
     </li>
       <li>
         <p>Result :</p>
-        <img src = "imgaes/result.png"/>
+        <img src = "images/result.png"/>
       </li>
     </ol>
   </li>
