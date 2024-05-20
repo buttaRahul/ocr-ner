@@ -16,7 +16,7 @@ load_dotenv()
 endpoint = os.getenv('ENDPOINT')
 # print(endpoint)
 key = os.getenv("API_KEY")
-print(key)
+# print(key)
 
 
 
