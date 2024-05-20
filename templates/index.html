@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Text Extraction and NER</title>
+  <link rel="stylesheet" type="text/css" href="../static/css/style.css">
+</head>
+<body>
+  <h1>PDF Text Extraction and NER</h1>
+  <form>
+    <input type="file" name="file" id="input_file" onchange="extractText()">
+    <button type="button" onclick="extractText()">Extract Text</button>
+  </form>
+  <br><br>
+  <form action="/ner" method="POST">
+    <label for="text_area">Extracted Text:</label>
+    <textarea id="text_area" name="text" rows="10" cols="80"></textarea>
+    <button type="submit">Perform NER</</button>
+  </form>
+  <script>
+    function extractText() {
+      const inputFile = document.getElementById('input_file').files[0];
+      const formData = new FormData();
+      formData.append('file', inputFile);
+
+      fetch('/predict', {
+        method: 'POST',
+        body: formData
+      }).then(response => response.json())
+        .then(data => populateTextArea(data.extracted_text))
+        .catch(error => console.error('Error:', error));
+    }
+
+    function populateTextArea(text) {
+      document.getElementById('text_area').value = text;
+    }
+  </script>
+</body>
+</html>
