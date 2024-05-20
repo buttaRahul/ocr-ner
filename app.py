@@ -38,8 +38,6 @@ app.add_middleware(
 
 templates = Jinja2Templates(directory="templates")
 
-# endpoint = "https://ocrner.cognitiveservices.azure.com/"
-# key = "7be108f880cc463ebb15dd266252b63d"
 document_analysis_client = DocumentAnalysisClient(
     endpoint=endpoint, credential=AzureKeyCredential(key)
 )
